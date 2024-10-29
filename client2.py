@@ -4,7 +4,7 @@ import base64
 
 def client_program():
     host = socket.gethostname()  
-    port = 5000  
+    port = 6304  
 
     client_socket = socket.socket()  
     client_socket.connect((host, port))  
@@ -14,7 +14,7 @@ def client_program():
 
     message = input(" -> ")  
 
-    while message.lower().strip() != 'bye':
+    while message.lower().strip() != 'bye' and message.lower().strip() != 'exit':
         
         encrypted_message = des_cbc_encrypt_base64(message, key, iv)
         print("Sending encrypted message:", encrypted_message)
@@ -29,6 +29,8 @@ def client_program():
         print("Decrypted message from server:", decrypted_message)  
 
         message = input(" -> ")  
+
+        print("Type exit or bye to end the connection")
 
     client_socket.close()  
 

@@ -3,7 +3,7 @@ from DES_CBC import des_cbc_decrypt_base64, des_cbc_encrypt_base64
 
 def server_program():
     host = socket.gethostname()
-    port = 5000  
+    port = 6304  
 
     server_socket = socket.socket()  
     server_socket.bind((host, port))  
